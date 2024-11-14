@@ -14,6 +14,13 @@ app.use(cors())
 app.get('/', (req, res) => {
     res.send('Hello from Node.js backend!');
   });
+
+
+app.post('/register', (req, res) => {
+  res.send({
+    message: `Hello ${req.body.email}! Your user was successfully registered!`
+  })
+});
   
 
 

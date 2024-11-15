@@ -1,9 +1,14 @@
 <script>
-    import stockCard from '@/components/StockCard.vue'
-    console.log("test")
+import StockCard from '../components/StockCard.vue';
+
+export default {
+  components: {
+    StockCard,
+  },
+};
 </script>
 
-<template>
 
-    <stockCard/>
+<template>
+    <StockCard/>
 </template>

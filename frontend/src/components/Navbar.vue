@@ -1,5 +1,5 @@
-<template>
-    <nav class="bg-dark-secondary mx-10 opacity-80 border-2 border- rounded-2xl shadow-lg h-13">
+<<template>
+    <nav class="bg-dark-secondary mx-10 opacity-80 border-2 border- rounded-2xl shadow-lg h-13 mb-8">
       <div class="ml-3 max-w-7xl px-2 sm:px-6 lg:px-8">
         <div class="relative flex h-16 items-center justify-between">
           <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
@@ -73,4 +73,4 @@
     },
   };
   </script>
-  
+  >

@@ -10,6 +10,8 @@
     "tailwind": "npx tailwindcss -i ./src/assets/tailwind.css -o ./src/assets/main.css --watch --minify"
   },
   "dependencies": {
+    "daisyui": "^4.12.14",
+    "flowbite": "^2.5.2",
     "tailwind": "^4.0.0",
     "vue": "^3.5.12",
     "vue-router": "^4.4.5"

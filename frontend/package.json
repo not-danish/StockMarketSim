@@ -10,6 +10,7 @@
     "tailwind": "npx tailwindcss -i ./src/assets/tailwind.css -o ./src/assets/main.css --watch --minify"
   },
   "dependencies": {
+    "animate.css": "^4.1.1",
     "daisyui": "^4.12.14",
     "flowbite": "^2.5.2",
     "tailwind": "^4.0.0",

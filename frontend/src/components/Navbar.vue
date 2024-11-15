@@ -1,5 +1,5 @@
 <<template>
-    <nav class="bg-dark-secondary mx-10 opacity-80 border-2 border- rounded-2xl shadow-lg h-13 mb-8">
+    <nav class="bg-dark-secondary mx-10 opacity-80 border-2 border- rounded-2xl shadow-md h-13 mb-8 shadow-neutral-400">
       <div class="ml-3 max-w-7xl px-2 sm:px-6 lg:px-8">
         <div class="relative flex h-16 items-center justify-between">
           <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
@@ -7,28 +7,28 @@
               <div class="flex space-x-4">
                 <!-- Use RouterLink for each link with dynamic classes and cursor-pointer -->
                 <RouterLink
-                  to="/dashboard"
-                  @click="setActive('dashboard')"
-                  :class="buttonClasses('dashboard')"
+                  to="/portfolio"
+                  @click="setActive('portfolio')"
+                  :class="buttonClasses('portfolio')"
                   class="rounded-md px-3 py-2 text-sm font-medium cursor-pointer"
                   aria-current="page">
-                  Dashboard
+                  Portfolio
                 </RouterLink>
   
                 <RouterLink
-                  to="/team"
-                  @click="setActive('team')"
-                  :class="buttonClasses('team')"
+                  to="/stocks"
+                  @click="setActive('stocks')"
+                  :class="buttonClasses('stocks')"
                   class="rounded-md px-3 py-2 text-sm font-medium cursor-pointer">
-                  Team
+                  Stocks
                 </RouterLink>
   
                 <RouterLink
-                  to="/projects"
-                  @click="setActive('projects')"
-                  :class="buttonClasses('projects')"
+                  to="/sectors"
+                  @click="setActive('sectors')"
+                  :class="buttonClasses('sectors')"
                   class="rounded-md px-3 py-2 text-sm font-medium cursor-pointer">
-                  Projects
+                  Sectors
                 </RouterLink>
   
                 <RouterLink
@@ -40,11 +40,11 @@
                 </RouterLink>
   
                 <RouterLink
-                  to="/stocks"
-                  @click="setActive('stocks')"
-                  :class="buttonClasses('stocks')"
+                  to="/login"
+                  @click="setActive('login')"
+                  :class="buttonClasses('login')"
                   class="rounded-md px-3 py-2 text-sm font-medium cursor-pointer">
-                  Stocks
+                  Login
                 </RouterLink>
               </div>
             </div>

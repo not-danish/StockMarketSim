@@ -19,7 +19,7 @@ function template(d, i, elements) {
     if (wm.has(d)) {
       return wm.get(d);
     } else
-    {
+    { 
       const componentDiv = document.createElement('div');
       const omittedData = Object.entries(omit(d, [props.index])).map(([key, value]) => {
         const legendReference = props.items?.find((i) => i.name === key);

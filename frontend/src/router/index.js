@@ -7,7 +7,7 @@ import TradeView from '@/views/TradeView.vue';
 
 
 const routes = [
-  { path: '/', name: 'home', component: HomeView },
+  { path: '/', name: 'home', component: HomeView},
   { path: '/stocks', name: 'stocks', component: StockView },
   { path: '/portfolio', name: 'portfolio', component: PortfolioView},
   { path: '/trade', name: 'trade', component: TradeView}

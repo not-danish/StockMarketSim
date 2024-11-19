@@ -5,7 +5,7 @@ import 'animate.css'
 </script>
 
 <template>
-  <div class="bg-dark-background min-h-screen">
+  <div class="bg-slate-900 min-h-screen">
     <header>
       <Navbar />
     </header>

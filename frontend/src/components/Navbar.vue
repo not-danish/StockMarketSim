@@ -1,5 +1,5 @@
 <<template>
-    <nav class="bg-dark-secondary mx-10 opacity-80 border-2 border- rounded-2xl shadow-md h-13 mb-8 shadow-neutral-400">
+    <nav class="sticky bg-slate-800 mx-10 opacity-80 border-2 rounded-2xl shadow-md h-16 mb-8 shadow-slate-900 text-slate-100">
       <div class="ml-3 max-w-7xl px-2 sm:px-6 lg:px-8">
         <div class="relative flex h-16 items-center justify-between">
           <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
@@ -67,8 +67,8 @@
       },
       buttonClasses(button) {
         return this.activeButton === button
-          ? 'bg-dark-accent text-dark-text' // Active button styles
-          : 'text-dark-text-secondary hover:bg-dark-hover hover:text-dark-text'; // Inactive button styles
+          ? 'bg-slate-400 text-slate-800' // Active button styles
+          : 'text-dark-text-secondary hover:bg-slate-400 hover:text-slate-800'; // Inactive button styles
       },
     },
   };

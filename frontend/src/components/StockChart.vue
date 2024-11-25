@@ -1,13 +1,34 @@
 <script>
-import Button from "@/components/ui/button/Button.vue"
+    import Spinner from "@/components/ui/spinner/Spinner.vue"
+
+    export default {
+        components: {
+            Spinner
+        }, 
+        props: {
+            loading: {
+                required: true
+            }
+        }
+    }
 
 </script>
 
 
 <template>
 
-<div class=" bg-slate-700 rounded-2xl shadow-2xl p-6 text-slate-300 shadow-slate-800 border border-slate-200 border-opacity-50">
+<div v-if="loading" class="bg-slate-700 rounded-2xl shadow-2xl p-6 text-slate-300 shadow-slate-800 border border-slate-200 border-opacity-50">
+    
+    <div class="content-center">
+        <Spinner/>
+    </div>
+
+
+</div>
+
+<div v-else class="bg-slate-700 rounded-2xl shadow-2xl p-6 text-slate-300 shadow-slate-800 border border-slate-200 border-opacity-50">
     <slot/>
+
     <div class="flex items-center justify-center pt-3">
         <Button variant="outline" class="bg-slate-300 rounded-sm w-10 text-slate-600 mx-1 hover:bg-slate-600 hover:text-slate-300">1m</Button>
         <Button variant="outline" class="bg-slate-300 rounded-sm w-10 text-slate-600 mx-1 hover:bg-slate-600 hover:text-slate-300">10m</Button>

@@ -10,7 +10,12 @@ const routes = [
   { path: '/', name: 'home', component: HomeView},
   { path: '/stocks', name: 'stocks', component: StockView },
   { path: '/portfolio', name: 'portfolio', component: PortfolioView},
-  { path: '/trade', name: 'trade', component: TradeView}
+  
+  { path: '/trade/:stock', 
+    name: 'trade', 
+    component: TradeView,
+    props: true,
+  }
   
 ];
 

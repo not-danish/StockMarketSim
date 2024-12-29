@@ -18,16 +18,50 @@ app.use(cors())
 
 async function stockPrice(symbol, interval) {
   try {
+    // Calculate the period dynamically
+    const currentDate = new Date();
+    const endDate = Math.floor(currentDate.getTime() / 1000); // Current time in UNIX timestamp
+    let startDate;
+
+    // Determine period1 (start date) based on the interval
+    switch (interval) {
+      case '1m': // 1-minute interval (60 minutes)
+        startDate = endDate - 60 * 5060;
+        break;
+      case '2m': // 2-minute interval (120 minutes)
+        startDate = endDate - 60 * 2 * 60;
+        break;
+      case '5m': // 5-minute interval (300 minutes)
+        startDate = endDate - 60 * 5 * 60;
+        break;
+      case '15m': // 15-minute interval (900 minutes)
+        startDate = endDate - 60 * 15 * 60;
+        break;
+      case '1h': // 1-hour interval (60 hours)
+        startDate = endDate - 60 * 60 * 60;
+        break;
+      case '1d': // 1-day interval (60 days)
+        startDate = endDate - 60 * 24 * 60 * 60;
+        break;
+      default:
+        throw new Error('Unsupported interval');
+    }
+
+
     const queryOptions = {
-      period1: '2024-11-25',
+      period1: startDate, // Start date as UNIX timestamp
+      period2: endDate,   // End date as UNIX timestamp
       interval: interval,
       return: 'array'
-    }
-    const result = await yahooFinance.chart(symbol,queryOptions);
-    return result.quotes
+    };
+
+    const result = await yahooFinance.chart(symbol, queryOptions);
+
+    console.log(result);
+    return result.quotes;
 
   } catch (error) {
-    console.error('Error: ', error);
+    console.error('Error:', error);
   }
 }
 
@@ -65,7 +99,6 @@ try {
   const volDay = yahooData.indicators.quote[0].volume;
   const avgVol = await getAvgVolume(queries.ticker);
   const priceHistory = await stockPrice(queries.ticker, '1m');
-    
 
   const transformedData = {
       Symbol: yahooData.meta.symbol,
@@ -77,7 +110,6 @@ try {
       volRatio10Day: yahooData.meta.regularMarketVolume/avgVol.avgVol10Day,
       price: priceHistory
   }
-  console.log(transformedData)
   // Send the fetched data to the frontend
   res.json(transformedData);
 } catch (error) {

@@ -9,6 +9,7 @@ module.exports = {
   content: [
     './pages/**/*.{js,jsx,vue}',
     './components/**/*.{js,jsx,vue}',
+    './componenets/ui/chart/chart-line/LineChart.vue',
     './app/**/*.{js,jsx,vue}',
     './src/**/*.{js,jsx,vue}',
 	],
@@ -41,7 +42,7 @@ module.exports = {
           foreground: "hsl(var(--destructive-foreground))",
         },
         muted: {
-          DEFAULT: "hsl(var(--muted))",
+          DEFAULT: "#64748b",
           foreground: "hsl(var(--muted-foreground))",
         },
         accent: {

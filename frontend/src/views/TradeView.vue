@@ -29,8 +29,31 @@ export default {
     axios
       .get(`http://localhost:3000/api/finance?ticker=${stock}`)
       .then((response) => {
+        console.log("hi");
         stockData.value = response.data;
         priceData.value = stockData.value.price;
+
+        if (Array.isArray(priceData.value)) {
+          for (let i = 1; i < priceData.value.length; i++){
+            if (priceData.value[i]['close'] === null){
+              priceData.value[i]['close'] = priceData.value[i-1]['close'];
+            }
+          }
+        }
+        if (Array.isArray(priceData.value)) {
+          for (let i = 1; i < priceData.value.length; i++){
+            if (priceData.value[i]['high'] === null){
+              priceData.value[i]['high'] = priceData.value[i-1]['high'];
+            }
+          }
+        }
+        if (Array.isArray(priceData.value)) {
+          for (let i = 1; i < priceData.value.length; i++){
+            if (priceData.value[i]['open'] === null){
+              priceData.value[i]['open'] = priceData.value[i-1]['open'];
+            }
+          }
+        }
       })
       .catch((error) => {
         console.error("Error fetching stock data:", error);
@@ -55,27 +78,25 @@ export default {
             <StockChart class="w-3/5 lg:max-h-[calc(100vh-350px)] lg:min-h-[550px] xl:h-[650px]" :loading="loading">
                 <div class="flex justify-between">
                     <span class="text-4xl text-slate-100 text-left">{{stockData.Symbol}}<br></span>
-                    <div class="text-right relative text-green-500">
-                        <span class="text-4xl">${{stockData.price[stockData.price.length - 1].close}}</span>
-                        <span class="text-md">+{{ ((stockData.price[stockData.price.length - 1].close - stockData.price[0].close)/(stockData.price[stockData.price.length - 1].close)*100).toFixed(2)}}%</span>
-                    
+                    <div class="text-right relative ">
+                        <span class="text-4xl text-slate-200">${{stockData.price[stockData.price.length - 1].close.toFixed(2)}}</span>
+                        <span v-if='((stockData.price[stockData.price.length - 1].close - stockData.price[0].close)/(stockData.price[stockData.price.length - 1].close)*100) >= 0' class="text-md text-green-500"> +{{ ((stockData.price[stockData.price.length - 1].close - stockData.price[0].close)/(stockData.price[stockData.price.length - 1].close)*100).toFixed(2)}}%</span>
+                        <span v-else class="text-md text-red-500"> {{ ((stockData.price[stockData.price.length - 1].close - stockData.price[0].close)/(stockData.price[stockData.price.length - 1].close)*100).toFixed(2)}}%</span>
+
                     </div>
                 </div>
 
                 <div class="text-md">{{stockData.Name}}</div>
 
                 <LineChart
-                    index="date"
-                    class="pt-25 "
+                    class="pt-25 pb-2"
                     :data="priceData"
                     :categories="['close']"
-                    :colors="['#E2E8F0', '#CBD5E1']"
-                    :showLegend="true"
+                    :colors="['#E2E8F0']"
+                    :showLegend="false"
+                    :showGridLine="true"
                     :showTooltip="true"
-                    :showGridLine="false"
-                    :showYAxis="true"
-
-                />
+                 />
             </StockChart>
         <TradeCard class="lg:max-h-[calc(100vh-350px)] lg:min-h-[550px]" :stock="stock"/>
     </div>

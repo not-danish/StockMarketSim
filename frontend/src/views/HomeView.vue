@@ -278,6 +278,17 @@ export default {
 
 <template>
 
-
+  <LineChart
+                      :data="data"
+                      :categories="['Export Growth Rate', 'Import Growth Rate']"
+                      :index="year"
+                      :colors="['#E2E8F0']"
+                      :show-grid-line="true"
+                      :yFormatter="(tick, i) => {
+                        return typeof tick === 'number'
+                          ? `$ ${new Intl.NumberFormat('us').format(tick).toString()}`
+                          : 'test'
+                      }"
+                  />   
 
 </template>

@@ -19,7 +19,7 @@
 
 <div v-if="loading" class="bg-slate-700 rounded-2xl shadow-2xl p-6 text-slate-300 shadow-slate-800 border border-slate-200 border-opacity-50">
     
-    <div class="content-center">
+    <div class="grid place-items-center h-full">
         <Spinner/>
     </div>
 

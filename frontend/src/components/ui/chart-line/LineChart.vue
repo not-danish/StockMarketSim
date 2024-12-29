@@ -100,13 +100,14 @@ function handleLegendItemClick(d, i) {
         type="x"
         :tick-format="xFormatter ?? ((v) => data[v]?.[index])"
         :grid-line="false"
-        :tick-line="false"
-        tick-text-color="hsl(var(--vis-text-color))"
+        :tick-line="true"
+        tick-text-color="#cbd5e1"
+        numTicks="10"
       />
       <VisAxis
         v-if="showYAxis"
         type="y"
-        :tick-line="false"
+        :tick-line="true"
         :tick-format="yFormatter"
         :domain-line="false"
         :grid-line="showGridLine"
@@ -115,8 +116,9 @@ function handleLegendItemClick(d, i) {
             class: 'text-muted',
           },
         }"
-        tick-text-color="hsl(var(--vis-text-color))"
-      />
+        tick-text-color="#cbd5e1"
+
+        />
 
       <slot />
     </VisXYContainer>
